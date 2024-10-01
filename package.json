@@ -1,0 +1,36 @@
+{
+  "name": "@rickzaki/json-stringify-sorted",
+  "description": "a variation on JSON.stringify which allows for sorting keys",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": {
+    "email": "npm@RickZaki.com",
+    "name": "Rick Zaki"
+  },
+  "bugs": {
+    "url": "https://github.com/RickZaki/json-stringify-sorted/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:RickZaki/json-stringify-sorted.git"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "core-js": "^3.38.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.11.1",
+    "eslint": "^9.11.1",
+    "jest": "^29.7.0",
+    "jest-junit": "^16.0.0"
+  },
+  "volta": {
+    "node": "14.21.3"
+  }
+}

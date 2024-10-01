@@ -1,0 +1,8 @@
+__tests__/
+coverage/
+node_modules/
+.gitignore
+.gitlab-ci.yml
+.npmignore
+eslint.config.mjs
+jest.config.js
