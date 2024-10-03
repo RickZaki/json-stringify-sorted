@@ -4,11 +4,7 @@ const Set = require('core-js/actual/set');
 const getNestedKeySet = (currentLevelObject) => {
     let keySet = new Set();
 
-    if (Array.isArray(currentLevelObject)) {
-        currentLevelObject.forEach((item) => {
-            keySet = keySet.union(getNestedKeySet(item));
-        });
-    } else if (typeof currentLevelObject === 'object') {
+    if (typeof currentLevelObject === 'object' && currentLevelObject && !Array.isArray(currentLevelObject)) {
         Object.keys(currentLevelObject).forEach((key) => {
             keySet.add(key);
             keySet = keySet.union(getNestedKeySet(currentLevelObject[key]));

@@ -36,7 +36,21 @@ describe('jsonStringifySorted should match JSON.stringify', () => {
             
             expect(jsonStringifySortedValue).toEqual(jsonStringify);
         });
-        test('with a complext object', () => {
+        test('with a undefined properties', () => {
+            const testSubject = {a:1, b:undefined, c: 3};
+            const jsonStringify = JSON.stringify(testSubject);
+            const jsonStringifySortedValue = jsonStringifySorted(testSubject);
+            
+            expect(jsonStringifySortedValue).toEqual(jsonStringify);
+        });
+        test('with a null properties', () => {
+            const testSubject = {a:1, b:null, c: 3};
+            const jsonStringify = JSON.stringify(testSubject);
+            const jsonStringifySortedValue = jsonStringifySorted(testSubject);
+            
+            expect(jsonStringifySortedValue).toEqual(jsonStringify);
+        });
+        test('with a complex object', () => {
             const testSubject = {a:1, b:[8,6,7,5], c: {a:4, b:5}};
             const jsonStringify = JSON.stringify(testSubject);
             const jsonStringifySortedValue = jsonStringifySorted(testSubject);
@@ -97,6 +111,20 @@ describe('jsonStringifySorted sorting behavior', ()=> {
     test('should sort a nested object', () => {
         const testSubject = {c:{f:99, e:10}, a:9, b:5};
         const expectedResult = `{"a":9,"b":5,"c":{"e":10,"f":99}}`;
+        const jsonStringifySortedValue = jsonStringifySorted(testSubject);
+        
+        expect(jsonStringifySortedValue).toEqual(expectedResult);
+    });
+    test('should sort with undefined properties', () => {
+        const testSubject = {c: undefined, a:9, b:5};
+        const expectedResult = `{"a":9,"b":5}`;
+        const jsonStringifySortedValue = jsonStringifySorted(testSubject);
+        
+        expect(jsonStringifySortedValue).toEqual(expectedResult);
+    });
+    test('should sort with null properties', () => {
+        const testSubject = {c: null, a:9, b:5};
+        const expectedResult = `{"a":9,"b":5,"c":null}`;
         const jsonStringifySortedValue = jsonStringifySorted(testSubject);
         
         expect(jsonStringifySortedValue).toEqual(expectedResult);
