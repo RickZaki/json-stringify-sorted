@@ -1,7 +1,7 @@
 {
   "name": "@rickzaki/json-stringify-sorted",
   "description": "a variation on JSON.stringify which allows for sorting keys",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "MIT",
   "author": {
     "email": "npm@RickZaki.com",
