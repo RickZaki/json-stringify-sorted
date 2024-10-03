@@ -1,8 +1,9 @@
-// requireing set.union polyfill until more widely supported
-const Set = require('core-js/actual/set');
+// requiring set.union polyfill until more widely supported
+const SetWithUnion = require('./set-union-polyfill');
+
 
 const getNestedKeySet = (currentLevelObject) => {
-    let keySet = new Set();
+    let keySet = new SetWithUnion();
 
     if (typeof currentLevelObject === 'object' && currentLevelObject && !Array.isArray(currentLevelObject)) {
         Object.keys(currentLevelObject).forEach((key) => {
@@ -20,7 +21,8 @@ const getSortedKeys = (inputObject, comparator) => {
     if (typeof comparator === 'function' || comparator === undefined) {
         const unsortedKeys = getNestedKeySet(inputObject);
         sortedKeys = Array.from(unsortedKeys).sort(comparator);
-    } else if (Array.isArray(comparator)) sortedKeys = comparator;
+    }
+    if (Array.isArray(comparator)) sortedKeys = comparator;
     
     return sortedKeys;
 }

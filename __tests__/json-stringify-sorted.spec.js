@@ -108,6 +108,13 @@ describe('jsonStringifySorted sorting behavior', ()=> {
         
         expect(jsonStringifySortedValue).toEqual(expectedResult);
     });
+    test('should sort a simple object with invalid input', () => {
+        const testSubject = {c:1, a:9, b:5};
+        const expectedResult = `{"a":9,"b":5,"c":1}`;
+        const jsonStringifySortedValue = jsonStringifySorted(testSubject, '');
+        
+        expect(jsonStringifySortedValue).toEqual(expectedResult);
+    });
     test('should sort a nested object', () => {
         const testSubject = {c:{f:99, e:10}, a:9, b:5};
         const expectedResult = `{"a":9,"b":5,"c":{"e":10,"f":99}}`;

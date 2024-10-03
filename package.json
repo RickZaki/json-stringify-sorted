@@ -15,14 +15,11 @@
     "url": "git@github.com:RickZaki/json-stringify-sorted.git"
   },
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=14.6.0"
   },
   "main": "src/index.js",
   "scripts": {
     "test": "jest"
-  },
-  "dependencies": {
-    "core-js": "^3.38.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.11.1",
